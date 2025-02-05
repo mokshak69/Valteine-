@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Hey [Her Name], I have a question for you!</h1>
+    <div id="questions">
+        <div class="question">What's your favorite thing about me?</div>
+        <button class="option">Your smile</button>
+        <button class="option">Your jokes</button>
+        <button class="option">Everything ❤️</button>
+
+        <div class="question">If we could go on a dream date, where would it be?</div>
+        <button class="option">A cozy café</button>
+        <button class="option">A long drive</button>
+        <button class="option">Anywhere with you!</button>
+
+        <div class="question">Would you like to answer the most important question?</div>
+        <button class="option" onclick="showValentineQuestion()">Of course!</button>
+    </div>
+
+    <div id="valentine-question" class="hidden">
+        <div class="question">Will you be my Valentine? 💖</div>
+        <button class="yes" onclick="showFinalMessage()">Yes</button>
+        <button class="no" id="noButton">No</button>
+    </div>
+
+    <div id="final-message" class="hidden final-message">Yay! You made my day! Can't wait to celebrate with you ❤️</div>
+</div>
+
+<script>
+    function showValentineQuestion() {
+        document.getElementById('questions').style.display = 'none';
+        document.getElementById('valentine-question').classList.remove('hidden');
+    }
+
+    function showFinalMessage() {
+        document.getElementById('valentine-question').style.display = 'none';
+        document.getElementById('final-message').classList.remove('hidden');
+    }
+
+    // Moving "No" button effect
+    const noButton = document.getElementById('noButton');
+    noButton.addEventListener('mouseover', moveNoButton);
+    noButton.addEventListener('touchstart', moveNoButton);
+
+    function moveNoButton() {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 100);
+        noButton.style.left = `${x}px`;
+        noButton.style.top = `${y}px`;
+    }
+</script>
